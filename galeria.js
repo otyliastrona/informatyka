@@ -41,7 +41,7 @@ const dane = [
     cena: "250 zł"
   },
   {
-    src: "img/sluchawki.jpg",
+    src: "img/Sluchawki.jpg",
     opis: "Słuchawki Sony WH-1000XM5",
     cena: "1200 zł"
   },
