@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prezentacja produktów</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background-color: #f9f9f9;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    #slajd img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    #slajd h2 {
+      margin: 15px 0 5px;
+      font-size: 1.3em;
+    }
+
+    #slajd p {
+      margin: 5px 0;
+      font-size: 1em;
+    }
+
+    #info {
+      margin-top: 20px;
+      color: #555;
+      font-style: italic;
+      font-size: 0.95em;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+
+      #slajd h2 {
+        font-size: 1.1em;
+      }
+
+      #slajd p {
+        font-size: 0.95em;
+      }
+
+      #info {
+        font-size: 0.85em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Prezentacja sprzętu sklepu</h1>
+
+  <div id="slajd">
+    <img id="obraz" src="" alt="">
+    <h2 id="nazwa"></h2>
+    <p id="cena"></p>
+    <p id="opis"></p>
+  </div>
+
+  <p id="info">Użyj strzałek lewo/prawo na klawiaturze, aby zmieniać slajdy.</p>
+
+  <script>
+    const dane = [
+      { src: "img/LaptopDell.jpg", nazwa: "Laptop Dell XPS 13", cena: "5000 zł", opis: "Lekki, szybki i wydajny laptop do codziennej pracy i rozrywki." },
+      { src: "img/TelefonSamsung.jpg", nazwa: "Telefon Samsung S21", cena: "3000 zł", opis: "Nowoczesny smartfon z doskonałym aparatem i ekranem AMOLED." },
+      { src: "img/iPadPro.jpg", nazwa: "Tablet iPad Pro", cena: "4000 zł", opis: "Moc tabletu i wygoda laptopa – idealny do kreatywnej pracy." },
+      { src: "img/MonitorLG.jpg", nazwa: "Monitor LG UltraWide", cena: "1200 zł", opis: "Szeroki ekran do pracy wielozadaniowej i oglądania filmów." },
+      { src: "img/Myszka.jpg", nazwa: "Mysz Logitech MX", cena: "300 zł", opis: "Ergonomiczna mysz dla profesjonalistów i graczy." },
+      { src: "img/Klawiatura.jpg", nazwa: "Klawiatura Corsair K70", cena: "450 zł", opis: "Mechaniczna klawiatura RGB z szybkim czasem reakcji." },
+      { src: "img/Drukarka.jpg", nazwa: "Drukarka HP LaserJet", cena: "700 zł", opis: "Niezawodna drukarka laserowa do biura i domu." },
+      { src: "img/Router.jpg", nazwa: "Router TP-Link AX", cena: "250 zł", opis: "Nowoczesny router z obsługą WiFi 6 i wysoką przepustowością." },
+      { src: "img/Sluchawki.jpg", nazwa: "Słuchawki Sony WH-1000XM5", cena: "1200 zł", opis: "Wysokiej klasy słuchawki z redukcją szumów i świetnym brzmieniem." },
+      { src: "img/Kamera.jpg", nazwa: "Kamera Logitech C920", cena: "400 zł", opis: "Popularna kamera internetowa idealna do wideokonferencji." }
+    ];
+
+    let indeks = 0;
+
+    function pokazSlajd(i) {
+      const produkt = dane[i];
+      document.getElementById("obraz").src = produkt.src;
+      document.getElementById("nazwa").textContent = produkt.nazwa;
+      document.getElementById("cena").textContent = "Cena: " + produkt.cena;
+      document.getElementById("opis").textContent = produkt.opis;
+    }
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "ArrowRight") {
+        indeks = (indeks + 1) % dane.length;
+        pokazSlajd(indeks);
+      } else if (e.key === "ArrowLeft") {
+        indeks = (indeks - 1 + dane.length) % dane.length;
+        pokazSlajd(indeks);
+      }
+    });
+
+    pokazSlajd(indeks); 
+  </script>
+</body>
+</html>

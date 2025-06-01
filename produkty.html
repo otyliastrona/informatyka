@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Produkty</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f9f9f9;
+      margin: 0;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .produkty-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .produkt {
+      border: 1px solid #ccc;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .produkt:hover {
+      transform: scale(1.03);
+    }
+
+    .produkt img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .produkt {
+        width: 45%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .produkt {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>Nasze produkty</h2>
+
+  <div class="produkty-container">
+    <div class="produkt">
+      <img src="img/LaptopDell.jpg" alt="Laptop Dell">
+      <h3>Laptop Dell XPS</h3>
+      <p>Cena: 5000 zł</p>
+    </div>
+    <div class="produkt">
+      <img src="img/TelefonSamsung.jpg" alt="Telefon Samsung">
+      <h3>Telefon Samsung S21</h3>
+      <p>Cena: 3000 zł</p>
+    </div>
+    <div class="produkt">
+      <img src="img/iPadPro.jpg" alt="iPad Pro">
+      <h3>Tablet iPad Pro</h3>
+      <p>Cena: 4000 zł</p>
+    </div>
+    <div class="produkt">
+      <img src="img/MonitorLG.jpg" alt="Monitor LG">
+      <h3>Monitor LG UltraWide</h3>
+      <p>Cena: 1200 zł</p>
+    </div>
+    <div class="produkt">
+      <img src="img/Myszka.jpg" alt="Mysz Logitech">
+      <h3>Mysz Logitech MX</h3>
+      <p>Cena: 300 zł</p>
+    </div>
+    <div class="produkt">
+      <img src="img/Klawiatura.jpg" alt="Klawiatura Corsair">
+      <h3>Klawiatura Corsair K70</h3>
+      <p>Cena: 450 zł</p>
+    </div>
+    <div class="produkt">
+      <img src="img/Drukarka.jpg" alt="Drukarka HP">
+      <h3>Drukarka HP LaserJet</h3>
+      <p>Cena: 700 zł</p>
+    </div>
+    <div class="produkt">
+      <img src="img/Router.jpg" alt="Router TP-Link">
+      <h3>Router TP-Link AX</h3>
+      <p>Cena: 250 zł</p>
+    </div>
+    <div class="produkt">
+      <img src="img/Sluchawki.jpg" alt="Słuchawki Sony">
+      <h3>Słuchawki Sony WH-1000XM5</h3>
+      <p>Cena: 1200 zł</p>
+    </div>
+    <div class="produkt">
+      <img src="img/Kamera.jpg" alt="Kamera Logitech">
+      <h3>Kamera Logitech C920</h3>
+      <p>Cena: 400 zł</p>
+    </div>
+  </div>
+</body>
+</html>

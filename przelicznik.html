@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Przelicznik</title>
+  <script src="js/konwerter.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      font-size: 1em;
+    }
+
+    button {
+      margin-top: 15px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #wynik {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    canvas {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>Przelicznik kosztu energii</h2>
+  <form>
+    <label>Zużycie (kWh): <input type="number" id="kwh"></label>
+    <label>Cena za kWh (zł): <input type="number" id="cena"></label>
+    <label>Ilość dni: <input type="number" id="dni"></label>
+    <label>Liczba urządzeń: <input type="number" id="urz"></label>
+    <button type="button" onclick="obliczKoszt()">Oblicz</button>
+  </form>
+  <p id="wynik"></p>
+  <canvas id="wykres" width="400" height="200"></canvas>
+</body>
+</html>

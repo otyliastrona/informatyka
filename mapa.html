@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plan sklepu z mapą obrazkową i informacjami</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 1.8em;
+    }
+
+    .image-container {
+      max-width: 100%;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    img[usemap] {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 90%;
+      width: 400px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      text-align: left;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      background: none;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.4em;
+      }
+
+      .modal-content {
+        font-size: 0.95em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Plan sklepu - kliknij na obszar</h1>
+
+  <div class="image-container">
+    <img src="img/plansklepu.jpg" usemap="#image-map" alt="Plan sklepu">
+
+    <map name="image-map">
+      <area shape="rect" coords="73,184,120,352" alt="Słuchawki" title="Słuchawki" href="#" data-info="Dział słuchawek - znajdziesz tutaj najnowsze modele słuchawek, zarówno przewodowych jak i bezprzewodowych.">
+      <area shape="rect" coords="128,183,174,345" alt="Laptopy" title="Laptopy" href="#" data-info="Dział laptopów - szeroki wybór laptopów do pracy, nauki i rozrywki.">
+      <area shape="rect" coords="147,118,272,155" alt="Monitory" title="Monitory" href="#" data-info="Dział monitorów - monitory o różnych rozdzielczościach i rozmiarach, idealne do pracy i gier.">
+      <area shape="rect" coords="141,70,317,101" alt="Drukarki" title="Drukarki" href="#" data-info="Dział drukarek - drukarki laserowe, atramentowe i wielofunkcyjne.">
+      <area shape="circle" coords="246,252,46" alt="Telefony" title="Telefony" href="#" data-info="Dział telefonów - smartfony różnych marek, akcesoria i gadżety.">
+      <area shape="circle" coords="381,373,60" alt="Akcesoria" title="Akcesoria" href="#" data-info="Dział akcesoriów - myszy, klawiatury, słuchawki i inne niezbędne dodatki.">
+    </map>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">&times;</button>
+      <p id="modalText"></p>
+    </div>
+  </div>
+
+  <script>
+    const areas = document.querySelectorAll('area');
+    const modal = document.getElementById('modal');
+    const modalText = document.getElementById('modalText');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    areas.forEach(area => {
+      area.addEventListener('click', (e) => {
+        e.preventDefault();
+        const info = area.getAttribute('data-info');
+        modalText.textContent = info;
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
